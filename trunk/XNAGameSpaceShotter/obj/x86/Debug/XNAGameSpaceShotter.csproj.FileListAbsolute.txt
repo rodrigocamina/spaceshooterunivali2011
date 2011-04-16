@@ -1,0 +1,7 @@
+C:\Users\Seink\documents\visual studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\OpenFont.xnb
+C:\Users\Seink\documents\visual studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\XNAGameSpaceShotter.exe
+C:\Users\Seink\documents\visual studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\XNAGameSpaceShotter.pdb
+C:\Users\Seink\documents\visual studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Seink\documents\visual studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Seink\documents\visual studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\obj\x86\Debug\XNAGameSpaceShotter.exe
+C:\Users\Seink\documents\visual studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\obj\x86\Debug\XNAGameSpaceShotter.pdb
