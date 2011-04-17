@@ -26,11 +26,12 @@ namespace XNAGameSpaceShotter {
         public SpriteFont fonteLetras;
         public Vector3 cameraPosition = new Vector3(15000.0f, 8000.0f, GameConstants.CameraHeight);
         public Vector3 cameraFocus = new Vector3(15000.0f, 8000.0f, 0);
-        private Screen actualScreen;
+        public Screen actualScreen;
 
         public GameCore() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            //graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace XNAGameSpaceShotter {
             fonteLetras = Content.Load<SpriteFont>("OpenFont");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            setScreen(new SplashScreen(this));
+            setScreen(new ScreenGamePlay(this));
         }
 
         /// <summary>
@@ -92,7 +93,7 @@ namespace XNAGameSpaceShotter {
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime) {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
             // TODO: Add your drawing code here

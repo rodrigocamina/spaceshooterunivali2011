@@ -1,0 +1,57 @@
+﻿
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using XNAGameSpaceShotter.src.view;
+using System.Collections.Generic;
+namespace XNAGameSpaceShotter.src.bean
+{
+    class Tiro :Component
+    {
+        public int velocidade;
+        public Vector2 posicao;
+        public int dano;
+        public Texture2D image;
+        public ScreenGamePlay screen;
+
+        public Tiro(GameCore game, Texture2D image , Vector2 posicao, int velocidade, int dano, ScreenGamePlay screen)
+            : base(game, image)
+        {
+            this.image = image;
+            this.posicao = posicao;
+            this.velocidade = velocidade;
+            this.dano = dano;
+            this.screen = screen;
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            mygame.spriteBatch.Draw(this.image, this.posicao, Color.White);
+        }
+
+        public override void Update(GameTime gameTime)
+        { 
+            this.posicao.Y += this.velocidade;
+            if (this.posicao.Y < -10)
+            {
+                screen.removeComponent(this);
+            }
+            colisao(screen.inimigos);
+
+        }
+
+        public void colisao(List<Inimigo> inimigos)
+        {
+            for (int i = 0; i < inimigos.Count; i++)
+            {
+                if (((this.posicao.X > inimigos[i].positionInimigo.X)&&(this.posicao.X < inimigos[i].positionInimigo.X + 80))&&
+                    ((this.posicao.Y > inimigos[i].positionInimigo.Y) && (this.posicao.Y < inimigos[i].positionInimigo.Y + inimigos[i].imgInimigo.Height)))
+                {
+                    screen.removeComponent(inimigos[i]);
+                    screen.inimigos.Remove(inimigos[i]);
+                    screen.removeComponent(this);
+                }
+            }
+        }
+    }
+}

@@ -110,9 +110,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="GameCore.cs" />
+    <Compile Include="src\bean\Tiro.cs" />
     <Compile Include="src\bean\Component.cs" />
     <Compile Include="src\bean\Component3D.cs" />
     <Compile Include="src\bean\EventBox.cs" />
+    <Compile Include="src\bean\Inimigo.cs" />
+    <Compile Include="src\bean\Player.cs" />
     <Compile Include="src\bean\Script.cs" />
     <Compile Include="src\core\ai\path\PathFinder.cs" />
     <Compile Include="src\core\ai\path\PathFinderData.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="src\Primitives3D\GeometricPrimitive.cs" />
     <Compile Include="src\Primitives3D\SpherePrimitive.cs" />
     <Compile Include="src\Primitives3D\VertexPositionNormal.cs" />
+    <Compile Include="src\view\ScreenGamePlay.cs" />
     <Compile Include="src\view\SplashScreen.cs" />
     <Compile Include="src\view\template\Screen.cs" />
   </ItemGroup>
