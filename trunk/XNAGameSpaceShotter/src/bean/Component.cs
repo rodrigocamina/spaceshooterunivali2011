@@ -23,6 +23,7 @@ namespace XNAGameSpaceShotter.src.bean {
         protected int alpha;//alpha de 0 a 255, onde 255 é opaco
         protected Vector3 position;
         protected GameCore mygame;
+        private GameCore game;
 
         public Component(GameCore game, Texture2D texture) {
             this.texture = texture;
@@ -32,6 +33,12 @@ namespace XNAGameSpaceShotter.src.bean {
         public Component(Game game, Texture2D texture, int alpha) {
             this.texture = texture;
             this.alpha = alpha;
+        }
+
+        public Component(GameCore game)
+        {
+            // TODO: Complete member initialization
+            this.game = game;
         }
 
         /// <summary>

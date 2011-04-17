@@ -1,1 +1,13 @@
 Content\OpenFont.xnb
+Content\Player.xnb
+Content\TiroPlayer.xnb
+Content\bullet.xnb
+Content\dualgun.xnb
+Content\explosao.xnb
+Content\explosao2.xnb
+Content\lancadorDeMisseis.xnb
+Content\metralhadora.xnb
+Content\missel.xnb
+Content\mosca2.xnb
+Content\nave.xnb
+Content\naveP.xnb
