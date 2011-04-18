@@ -80,6 +80,7 @@ namespace XNAGameSpaceShotter.src.view.template {
             currentKeyboardState = Keyboard.GetState();
             currentGamePadState = GamePad.GetState(PlayerIndex.One);
             currentMouseState = Mouse.GetState();
+            
         }
         public override void Draw(GameTime gameTime) {
             int sz = componentes.Count;
