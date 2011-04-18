@@ -110,6 +110,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="GameCore.cs" />
+    <Compile Include="src\bean\Button.cs" />
     <Compile Include="src\bean\Tiro.cs" />
     <Compile Include="src\bean\Component.cs" />
     <Compile Include="src\bean\Component3D.cs" />
