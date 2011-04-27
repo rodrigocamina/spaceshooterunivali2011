@@ -7,26 +7,71 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\OpenFont.xnb</Output>
-      <Time>2011-04-17T15:10:21.627503-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\OpenFont.xnb</Output>
+      <Time>2011-04-12T12:02:19.4660085-03:00</Time>
     </Item>
     <Item>
-      <Source>Player.png</Source>
-      <Name>Player</Name>
+      <Source>labelEject.png</Source>
+      <Name>labelEject</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\Player.xnb</Output>
-      <Time>2011-04-17T15:43:30.6242672-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\labelEject.xnb</Output>
+      <Time>2011-04-17T02:55:12.8507174-03:00</Time>
     </Item>
     <Item>
-      <Source>TiroPlayer.png</Source>
-      <Name>TiroPlayer</Name>
+      <Source>labelStart.png</Source>
+      <Name>labelStart</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\TiroPlayer.xnb</Output>
-      <Time>2011-04-17T19:02:12.9241837-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\labelStart.xnb</Output>
+      <Time>2011-04-17T02:52:24.3730811-03:00</Time>
+    </Item>
+    <Item>
+      <Source>Button.png</Source>
+      <Name>Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\Button.xnb</Output>
+      <Time>2011-04-16T20:32:54.9111289-03:00</Time>
+    </Item>
+    <Item>
+      <Source>ButtonS.png</Source>
+      <Name>ButtonS</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\ButtonS.xnb</Output>
+      <Time>2011-04-17T02:00:50.3601136-03:00</Time>
+    </Item>
+    <Item>
+      <Source>ButtonS2.png</Source>
+      <Name>ButtonS2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\ButtonS2.xnb</Output>
+      <Time>2011-04-17T02:02:34.952096-03:00</Time>
+    </Item>
+    <Item>
+      <Source>bg.png</Source>
+      <Name>bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\bg.xnb</Output>
+      <Time>2011-04-17T02:04:32.6588284-03:00</Time>
+    </Item>
+    <Item>
+      <Source>labelTitle.png</Source>
+      <Name>labelTitle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\labelTitle.xnb</Output>
+      <Time>2011-04-17T03:24:50.9534191-03:00</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -34,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2011-04-17T19:02:12.929184-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2011-04-18T13:18:13.4847678-03:00</Time>
     </Item>
     <Item>
       <Source>dualgun.png</Source>
@@ -43,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\dualgun.xnb</Output>
-      <Time>2011-04-17T19:02:12.9321842-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\dualgun.xnb</Output>
+      <Time>2011-04-18T13:18:13.4647667-03:00</Time>
     </Item>
     <Item>
       <Source>explosao.png</Source>
@@ -52,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\explosao.xnb</Output>
-      <Time>2011-04-17T19:02:12.9341843-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\explosao.xnb</Output>
+      <Time>2011-04-18T13:18:13.766784-03:00</Time>
     </Item>
     <Item>
       <Source>explosao2.png</Source>
@@ -61,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\explosao2.xnb</Output>
-      <Time>2011-04-17T19:02:12.9361844-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\explosao2.xnb</Output>
+      <Time>2011-04-18T13:18:13.4737672-03:00</Time>
     </Item>
     <Item>
       <Source>lancadorDeMisseis.png</Source>
@@ -70,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\lancadorDeMisseis.xnb</Output>
-      <Time>2011-04-17T19:02:12.9381845-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\lancadorDeMisseis.xnb</Output>
+      <Time>2011-04-18T13:18:13.7607836-03:00</Time>
     </Item>
     <Item>
       <Source>metralhadora.png</Source>
@@ -79,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\metralhadora.xnb</Output>
-      <Time>2011-04-17T19:02:12.9401846-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\metralhadora.xnb</Output>
+      <Time>2011-04-18T13:18:13.4667668-03:00</Time>
     </Item>
     <Item>
       <Source>missel.png</Source>
@@ -88,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\missel.xnb</Output>
-      <Time>2011-04-17T19:02:05.2277435-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\missel.xnb</Output>
+      <Time>2011-04-18T13:18:13.0567433-03:00</Time>
     </Item>
     <Item>
       <Source>mosca2.png</Source>
@@ -97,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\mosca2.xnb</Output>
-      <Time>2011-04-17T19:02:05.2327438-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\mosca2.xnb</Output>
+      <Time>2011-04-18T13:18:13.4817677-03:00</Time>
     </Item>
     <Item>
       <Source>nave.png</Source>
@@ -106,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\nave.xnb</Output>
-      <Time>2011-04-17T19:02:05.2377441-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\nave.xnb</Output>
+      <Time>2011-04-18T13:18:13.487768-03:00</Time>
     </Item>
     <Item>
       <Source>naveP.png</Source>
@@ -115,8 +160,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\naveP.xnb</Output>
-      <Time>2011-04-17T19:02:05.2427444-03:00</Time>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\naveP.xnb</Output>
+      <Time>2011-04-18T13:18:13.470767-03:00</Time>
+    </Item>
+    <Item>
+      <Source>TiroPlayer.png</Source>
+      <Name>TiroPlayer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\TiroPlayer.xnb</Output>
+      <Time>2011-04-18T13:18:13.7637838-03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -124,39 +178,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotterContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotterContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotterContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotterContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Seink\Documents\Visual Studio 2010\Projects\XNAGameSpaceShotter\XNAGameSpaceShotter\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-03:00</Value>
+        <Value>2010-08-23T11:41:18-03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-03:00</Value>
+        <Value>2010-08-23T11:41:18-03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-03:00</Value>
+        <Value>2010-08-23T11:41:18-03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-03:00</Value>
+        <Value>2010-08-23T11:41:18-03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-03:00</Value>
+        <Value>2010-08-23T11:41:18-03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-03:00</Value>
+        <Value>2010-08-23T11:41:18-03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-02-25T17:38:32.5039827-03:00</Value>
+        <Value>2011-02-09T12:16:55.1500341-02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

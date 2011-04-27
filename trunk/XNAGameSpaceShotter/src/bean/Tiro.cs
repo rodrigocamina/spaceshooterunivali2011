@@ -31,7 +31,7 @@ namespace XNAGameSpaceShotter.src.bean
 
         public override void Update(GameTime gameTime)
         { 
-            this.posicao.Y += this.velocidade;
+            this.posicao.Y += this.velocidade*gameTime.ElapsedGameTime.Milliseconds/1000.0f;
             if (this.posicao.Y < -10)
             {
                 screen.removeComponent(this);
@@ -44,11 +44,12 @@ namespace XNAGameSpaceShotter.src.bean
         {
             for (int i = 0; i < inimigos.Count; i++)
             {
-                if (((this.posicao.X > inimigos[i].positionInimigo.X)&&(this.posicao.X < inimigos[i].positionInimigo.X + 80))&&
-                    ((this.posicao.Y > inimigos[i].positionInimigo.Y) && (this.posicao.Y < inimigos[i].positionInimigo.Y + inimigos[i].imgInimigo.Height)))
+                Inimigo ini = inimigos[i];
+                if (((this.posicao.X > ini.positionInimigo.X)&&(this.posicao.X < ini.positionInimigo.X + 80))&&
+                    ((this.posicao.Y > ini.positionInimigo.Y) && (this.posicao.Y < ini.positionInimigo.Y + ini.imgInimigo.Height)))
                 {
-                    screen.removeComponent(inimigos[i]);
-                    screen.inimigos.Remove(inimigos[i]);
+                    screen.removeComponent(ini);
+                    screen.inimigos.Remove(ini);
                     screen.removeComponent(this);
                 }
             }

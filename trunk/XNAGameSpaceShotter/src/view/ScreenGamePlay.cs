@@ -37,7 +37,7 @@ namespace XNAGameSpaceShotter.src.view
         }
 
         public override void loadComponents() {
-            imagePlayer = mygame.Content.Load<Texture2D>("Player");
+            imagePlayer = mygame.Content.Load<Texture2D>("naveP");
             imageTiroPlayer = mygame.Content.Load<Texture2D>("TiroPlayer");
             imgInimigo = mygame.Content.Load<Texture2D>("lancadorDeMisseis");
             addComponent(player = new Player(mygame, imagePlayer, new Vector2(400,400), 3, 5, 3, this));
@@ -99,8 +99,8 @@ namespace XNAGameSpaceShotter.src.view
             {
                 if (delay <= 0)
                 {
-                    addComponent(new Tiro(mygame, imageTiroPlayer, player.positionPlayer + tiroAjusteEsquerda, -6, 1, this));
-                    addComponent(new Tiro(mygame, imageTiroPlayer, player.positionPlayer + tiroAjusteDireita, -6, 1, this));
+                    addComponent(new Tiro(mygame, imageTiroPlayer, player.positionPlayer + tiroAjusteEsquerda, -600, 1, this));
+                    addComponent(new Tiro(mygame, imageTiroPlayer, player.positionPlayer + tiroAjusteDireita, -600, 1, this));
                     delay = 200;
                 }
             }
