@@ -44,7 +44,7 @@ namespace XNAGameSpaceShotter.src.view
         public override void loadComponents()
         {
             imagePlayer = mygame.Content.Load<Texture2D>("naveP");
-            imageVida = mygame.Content.Load<Texture2D>("Player");
+            imageVida = mygame.Content.Load<Texture2D>("naveP");
             imageTiroPlayer = mygame.Content.Load<Texture2D>("TiroPlayer");
             imgInimigoMisseis = mygame.Content.Load<Texture2D>("lancadorDeMisseis");
             imgInimigoFly = mygame.Content.Load<Texture2D>("mosca2");
