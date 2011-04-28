@@ -27,45 +27,69 @@ namespace XNAGameSpaceShotter.src.view
         public Vector2 tiroAjusteDireita = new Vector2(34, 10);
         public List<Inimigo> inimigos = new List<Inimigo>();
         public int delay = 200;
-        public Texture2D imgInimigo;
-        public int criaInimigos = 1000;
+        public Texture2D imgInimigoMisseis;
+        Texture2D imgInimigoFly;
+        public int CriaInimigoMisseis = 3000;
+        public int CriaInimigoFly = 6000;
+        int indice;
+        int numeroDeFly = 5;
+        Texture2D imageVida;
 
         public ScreenGamePlay(GameCore game)
             : base(game)
         {
-            
+
         }
 
-        public override void loadComponents() {
+        public override void loadComponents()
+        {
             imagePlayer = mygame.Content.Load<Texture2D>("naveP");
+            imageVida = mygame.Content.Load<Texture2D>("Player");
             imageTiroPlayer = mygame.Content.Load<Texture2D>("TiroPlayer");
-            imgInimigo = mygame.Content.Load<Texture2D>("lancadorDeMisseis");
-            addComponent(player = new Player(mygame, imagePlayer, new Vector2(400,400), 3, 5, 3, this));
+            imgInimigoMisseis = mygame.Content.Load<Texture2D>("lancadorDeMisseis");
+            imgInimigoFly = mygame.Content.Load<Texture2D>("mosca2");
+            addComponent(player = new Player(mygame, imagePlayer, new Vector2(400, 400), 3, 5, 3, this));
         }
 
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
+            for (int i = 0; i < player.vida;i++ )
+            {
+                mygame.spriteBatch.Draw(imageVida, new Rectangle(30*i+10, mygame.Window.ClientBounds.Height - 30, 30, 30), Color.White);
+      
+            }
         }
 
         private void addInimigo(Inimigo x)
         {
             addComponent(x);
-            inimigos.Add(x); 
+            inimigos.Add(x);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Console.WriteLine("" + componentes.Count);
             int diff = (int)gameTime.ElapsedGameTime.Milliseconds;
             delay -= diff;
-            criaInimigos -= diff;
+            CriaInimigoMisseis -= diff;
+            CriaInimigoFly -= diff;
             //inimigos-----------------------------------------------------------------------------------------
-            if( criaInimigos <= 0){
-                addInimigo(new Inimigo(mygame, imgInimigo, 20, 1, 80));
-                criaInimigos = 1000;
+            if (CriaInimigoMisseis <= 0)
+            {
+                addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis,6, 100, 80, this));
+                CriaInimigoMisseis = 3000;
+
             }
+            if (CriaInimigoFly <= 0)
+            {
+                for(int i =0; i < numeroDeFly;i++){
+                    addInimigo(new Fly(mygame, imgInimigoFly, 2, 100, 87 / 3, new Vector2(mygame.Window.ClientBounds.Width + 20 * i, 600 * i), player));
+                    addInimigo(new Fly(mygame, imgInimigoFly, 2,100, 87 / 3, new Vector2(1 * i, 12 * i), player));
+                }
+                CriaInimigoFly = 6000;
+            }
+
             //fim inimigos-------------------------------------------------------------------------------------
             if (isPressed(Microsoft.Xna.Framework.Input.Keys.Up, Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickUp))
             {
@@ -104,6 +128,7 @@ namespace XNAGameSpaceShotter.src.view
                     delay = 200;
                 }
             }
+
         }
     }
 }

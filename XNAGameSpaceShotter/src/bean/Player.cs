@@ -24,17 +24,14 @@ namespace XNAGameSpaceShotter.src.bean
         public int velocidadePlayer;
         public int score = 0;
         public ScreenGamePlay screen;
-
-        public Vector2 positionTiro;
- 
+        float diff;
+        int tempo;
+        int frame;
 
         public Player(GameCore game, Texture2D imgPlayer, Vector2 positionPlayer, int vida, int hp, int velocidadePlayer, ScreenGamePlay screen)
             : base(game, imgPlayer)
         {
-            if (positionPlayer == null)
-            {
-                Console.WriteLine("tanull");
-            }
+
             this.positionPlayer = positionPlayer;
             this.imgPlayer = imgPlayer;
             this.vida = vida;
@@ -45,13 +42,30 @@ namespace XNAGameSpaceShotter.src.bean
 
         public override void Draw(GameTime gameTime)
         {
-            mygame.spriteBatch.Draw(imgPlayer, positionPlayer, Color.White);
+            mygame.spriteBatch.Draw(imgPlayer, positionPlayer, new Rectangle(frame * 54, 0, 54, 48), Color.White);
         }
 
         public override void Update(GameTime gameTime) 
         {
+            diff = gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+            tempo -= gameTime.ElapsedGameTime.Milliseconds;
+            if (tempo < 0)
+            {
+                tempo = 200;
+                if (frame < 3)
+                {
+                    frame++;
+
+                }
+                else
+                {
+                    frame = 0;
+                }
+
+            }
+            
             colisao(screen.inimigos);
-        }
+}
 
         public void colisao(List<Inimigo> inimigos)
         {
@@ -61,23 +75,33 @@ namespace XNAGameSpaceShotter.src.bean
                 Vector3 B = new Vector3(positionPlayer.X + imgPlayer.Width, positionPlayer.Y + imgPlayer.Height, 0);
 
                 Vector3 C = new Vector3(inimigos[i].positionInimigo.X, inimigos[i].positionInimigo.Y, 0);
-                Vector3 D = new Vector3(inimigos[i].positionInimigo.X + 80, inimigos[i].positionInimigo.Y + inimigos[i].imgInimigo.Height, 0);
+                Vector3 D = new Vector3(inimigos[i].positionInimigo.X + inimigos[i].largura, inimigos[i].positionInimigo.Y + inimigos[i].imgInimigo.Height, 0);
 
                 BoundingBox boxPlayer = new BoundingBox(A, B);
                 BoundingBox boxEnemy = new BoundingBox(C, D);
 
-                Console.WriteLine("Vai se foder!!!!!");
                 if (boxPlayer.Intersects(boxEnemy))
                 {
                     screen.removeComponent(inimigos[i]);
                     screen.inimigos.Remove(inimigos[i]);
-                    if (vida > 0)
-                        vida--;
-                    else
+
+                    if (hp > 0)
                     {
-                        screen.removeComponent(this);
-                        //mygame.setScreen("tela de gameover");
+                        hp--;
                     }
+                    else {
+                        vida--;
+                        hp = 5;
+                    }
+                    if (vida > 0)
+                    {
+                        vida--;
+                    }
+                    else {
+                        screen.removeComponent(this);
+                        mygame.setScreen(new ScreenGamePlay(mygame));
+                    }
+                    
                 }
             }
         }

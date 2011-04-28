@@ -47,10 +47,12 @@ namespace XNAGameSpaceShotter.src.bean
                 Inimigo ini = inimigos[i];
                 if (((this.posicao.X > ini.positionInimigo.X)&&(this.posicao.X < ini.positionInimigo.X + 80))&&
                     ((this.posicao.Y > ini.positionInimigo.Y) && (this.posicao.Y < ini.positionInimigo.Y + ini.imgInimigo.Height)))
-                {
-                    screen.removeComponent(ini);
-                    screen.inimigos.Remove(ini);
-                    screen.removeComponent(this);
+                {                    screen.removeComponent(this);
+                    inimigos[i].hp --;
+                    if(inimigos[i].hp < 0){ 
+                        screen.removeComponent(inimigos[i]);
+                        screen.inimigos.Remove(inimigos[i]);
+                    }
                 }
             }
         }
