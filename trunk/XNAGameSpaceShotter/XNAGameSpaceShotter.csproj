@@ -111,11 +111,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="GameCore.cs" />
     <Compile Include="src\bean\Button.cs" />
+    <Compile Include="src\bean\Fly.cs" />
+    <Compile Include="src\bean\Iminigo.cs" />
     <Compile Include="src\bean\Tiro.cs" />
     <Compile Include="src\bean\Component.cs" />
     <Compile Include="src\bean\Component3D.cs" />
     <Compile Include="src\bean\EventBox.cs" />
-    <Compile Include="src\bean\Inimigo.cs" />
+    <Compile Include="src\bean\LancadorMisseis.cs" />
     <Compile Include="src\bean\Player.cs" />
     <Compile Include="src\bean\Script.cs" />
     <Compile Include="src\core\ai\path\PathFinder.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="src\view\ScreenGamePlay.cs" />
     <Compile Include="src\view\SplashScreen.cs" />
     <Compile Include="src\view\template\Screen.cs" />
+    <Compile Include="src\bean\TiroMissel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
