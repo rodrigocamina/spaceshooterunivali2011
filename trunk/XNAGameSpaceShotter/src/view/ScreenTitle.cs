@@ -19,18 +19,27 @@ namespace XNAGameSpaceShotter.src.view {
         Vector2 animacao = Vector2.Zero;
         Vector2 titlepos;
         List<Sprite> naves = new List<Sprite>();
+        List<Sprite> navesInimigas = new List<Sprite>();
         Random rnd = new Random();
+        int wheight;
+        int wwidth;
 
-
-        public ScreenTitle(GameCore gamecore):base(gamecore) {
-            int width = gamecore.Window.ClientBounds.Right - gamecore.Window.ClientBounds.Left;
-            int height = gamecore.Window.ClientBounds.Bottom - gamecore.Window.ClientBounds.Top;
+        public ScreenTitle(GameCore gamecore, Vector2 animacao)
+            : base(gamecore) {
+            this.animacao = animacao;
+            int width = wwidth = gamecore.Window.ClientBounds.Right - gamecore.Window.ClientBounds.Left;
+            int height = wheight = gamecore.Window.ClientBounds.Bottom - gamecore.Window.ClientBounds.Top;
             bt1 = new Button(gamecore, mygame.Content.Load<Texture2D>("Button"), mygame.Content.Load<Texture2D>("labelStart"), mygame.Content.Load<Texture2D>("ButtonS2"), 23, new Vector3(width / 3 - 50, height * 4 / 5, 0),new ScriptBt1(mygame),1.4f);
             bt2 = new Button(gamecore, mygame.Content.Load<Texture2D>("Button"), mygame.Content.Load<Texture2D>("labelEject"), mygame.Content.Load<Texture2D>("ButtonS2"), 23, new Vector3(width * 2 / 3 - 50, height * 4 / 5, 0), new ScriptBt2(mygame), 1.4f);
-            for (int i = 0; i < 10;i++ ) {
-                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 54, 4, new Vector3(rnd.Next(600), rnd.Next(600), 0), (float)((rnd.NextDouble() + 1)/2));
+            for (int i = 0; i < 3; i++) {
+                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 54, 4, new Vector3(rnd.Next(wwidth), height + rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
                 addComponent(nave);
                 naves.Add(nave);
+            }
+            for (int i = 0; i < 30; i++) {
+                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("mosca2"), 29, 3, new Vector3(rnd.Next(wwidth), -rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
+                addComponent(nave);
+                navesInimigas.Add(nave);
             }
             
             addComponent(bt1);
@@ -81,8 +90,22 @@ namespace XNAGameSpaceShotter.src.view {
                 Sprite nave = naves[i];
                 nave.positionRect.Y -= gameTime.ElapsedGameTime.Milliseconds / 5;
                 if (nave.positionRect.Y < -nave.positionRect.Height) {
-                    nave.positionRect.Y = mygame.Window.ClientBounds.Height + nave.positionRect.Height + rnd.Next(60);
-                    nave.positionRect.X = rnd.Next(mygame.Window.ClientBounds.Width - nave.positionRect.Width);
+                    removeComponent(nave);
+                    naves.Remove(nave);
+                    nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 54, 4, new Vector3(rnd.Next(wwidth), wheight + rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
+                    addComponent(nave);
+                    naves.Add(nave);
+                }
+            }
+            for (int i = 0; i < navesInimigas.Count; i++) {
+                Sprite nave = navesInimigas[i];
+                nave.positionRect.Y += gameTime.ElapsedGameTime.Milliseconds / 5;
+                if (nave.positionRect.Y > nave.positionRect.Height+wheight) {
+                    removeComponent(nave);
+                    navesInimigas.Remove(nave);
+                    nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("mosca2"), 29, 3, new Vector3(rnd.Next(wwidth), -rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
+                    addComponent(nave);
+                    navesInimigas.Add(nave);
                 }
             }
         }

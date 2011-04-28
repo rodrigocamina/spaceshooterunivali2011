@@ -9,7 +9,7 @@ namespace XNAGameSpaceShotter.src.bean {
     public class Sprite : Component{
         Texture2D baseImg;
         Rectangle sourceRectangle;
-        int sprite;
+        public int sprite;
         int nsprites;
         int wsprites;
         int timeSprite = 100;
