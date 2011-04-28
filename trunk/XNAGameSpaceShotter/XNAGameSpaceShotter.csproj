@@ -111,6 +111,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="GameCore.cs" />
     <Compile Include="src\bean\Button.cs" />
+    <Compile Include="src\bean\Sprite.cs" />
     <Compile Include="src\bean\Fly.cs" />
     <Compile Include="src\bean\Iminigo.cs" />
     <Compile Include="src\bean\Tiro.cs" />
@@ -133,8 +134,9 @@
     <Compile Include="src\Primitives3D\GeometricPrimitive.cs" />
     <Compile Include="src\Primitives3D\SpherePrimitive.cs" />
     <Compile Include="src\Primitives3D\VertexPositionNormal.cs" />
+    <Compile Include="src\view\ScreenSplash.cs" />
     <Compile Include="src\view\ScreenGamePlay.cs" />
-    <Compile Include="src\view\SplashScreen.cs" />
+    <Compile Include="src\view\ScreenTitle.cs" />
     <Compile Include="src\view\template\Screen.cs" />
     <Compile Include="src\bean\TiroMissel.cs" />
   </ItemGroup>
