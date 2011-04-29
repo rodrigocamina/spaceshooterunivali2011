@@ -128,6 +128,7 @@
     <Compile Include="src\core\ai\path\Tile.cs" />
     <Compile Include="src\core\GameConstants.cs" />
     <Compile Include="src\core\RepositorioDeModelos.cs" />
+    <Compile Include="src\core\RepositorioDeSons.cs" />
     <Compile Include="src\core\RepositorioDeTexturas.cs" />
     <Compile Include="src\core\Utils.cs" />
     <Compile Include="src\Primitives3D\Block3D.cs" />

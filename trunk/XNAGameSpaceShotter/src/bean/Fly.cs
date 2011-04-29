@@ -60,12 +60,12 @@ namespace XNAGameSpaceShotter.src.bean
             if (segueTrajeto == 1)
             {
 
-                positionInimigo.X -= 10;
-                positionInimigo.Y += 10;
+                positionInimigo.X -= velocidadeInimigo *diff;
+                positionInimigo.Y += velocidadeInimigo * diff;
             }
             else {
-                positionInimigo.Y += 10;
-                positionInimigo.X += 10;
+                positionInimigo.Y += velocidadeInimigo * diff;
+                positionInimigo.X += velocidadeInimigo * diff;
             }
 
             //TIRO
@@ -89,7 +89,7 @@ namespace XNAGameSpaceShotter.src.bean
 
             }
 
-            if (positionInimigo.Y > mygame.Window.ClientBounds.Height || positionInimigo.X < 0 || positionInimigo.X < mygame.Window.ClientBounds.Width)
+            if (positionInimigo.Y > mygame.Window.ClientBounds.Height)
             {
                 mygame.actualScreen.removeComponent(this);
             }

@@ -34,19 +34,14 @@ namespace XNAGameSpaceShotter.src.view
         int indice;
         int numeroDeFly = 5;
         Texture2D imageVida;
-        Vector2 positionfly = new Vector2(10,10);
         int criaChefe = 50000;
         Texture2D imgChefe;
         Texture2D background;
-        float positionBack1;
-        float positionBack2;
-        float positionBack3;
-        int positionBack1old;
-        int positionBack2old;
-        int positionBack3old;
+        Boolean inimigo = true;
         float diff;
-        float velocidadebg = 100;
-
+        
+        static Random rnd = new Random();
+        Vector2 positionfly;
         Vector2 animacao = Vector2.Zero;
         Texture2D bg;
         List<Vector2> bgpos = new List<Vector2>();
@@ -55,12 +50,6 @@ namespace XNAGameSpaceShotter.src.view
         public ScreenGamePlay(GameCore game)
             : base(game)
         {
-            positionBack1old = 0;
-            //positionBack2old = -mygame.Window.ClientBounds.Height;
-            //positionBack3old = -mygame.Window.ClientBounds.Height - mygame.Window.ClientBounds.Height;
-            positionBack1 = positionBack1old;
-           // positionBack2 = positionBack2old;
-           // positionBack3 = positionBack3old;
 
             bg = mygame.Content.Load<Texture2D>("bg");
             int width = game.Window.ClientBounds.Right - game.Window.ClientBounds.Left;
@@ -81,7 +70,7 @@ namespace XNAGameSpaceShotter.src.view
         public override void loadComponents()
         {
             imagePlayer = mygame.Content.Load<Texture2D>("naveP");
-            imageVida = mygame.Content.Load<Texture2D>("naveP");
+            imageVida = mygame.Content.Load<Texture2D>("Player");
             imageTiroPlayer = mygame.Content.Load<Texture2D>("TiroPlayer");
             imgInimigoMisseis = mygame.Content.Load<Texture2D>("lancadorDeMisseis");
             imgInimigoFly = mygame.Content.Load<Texture2D>("mosca2");
@@ -101,6 +90,7 @@ namespace XNAGameSpaceShotter.src.view
                 mygame.spriteBatch.Draw(imageVida, new Rectangle(30*i+10, mygame.Window.ClientBounds.Height - 30, 30, 30), Color.White);
       
             }
+            
         }
 
         private void addInimigo(Inimigo x)
@@ -112,6 +102,8 @@ namespace XNAGameSpaceShotter.src.view
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            positionfly = new Vector2(rnd.Next(mygame.Window.ClientBounds.Width), 20);
+
             int tempo = (int)gameTime.ElapsedGameTime.Milliseconds;
             animacao.Y += tempo / 50.0f;
             if (animacao.Y > 200) {
@@ -123,25 +115,23 @@ namespace XNAGameSpaceShotter.src.view
             CriaInimigoFly -= tempo;
             criaChefe -= tempo;
             //inimigos-----------------------------------------------------------------------------------------
-            if (CriaInimigoMisseis <= 0)
+            if (CriaInimigoMisseis <= 0 && inimigo == true)
             {
                 addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis,6, 100, 80, this));
                 CriaInimigoMisseis = 3000;
 
             }
-            if (CriaInimigoFly <= 0)
+            if (CriaInimigoFly <= 0 && inimigo == true)
             {
-                for(int i =0; i < numeroDeFly;i++){
-                    addInimigo(new Fly(mygame, imgInimigoFly, 2, 10, 87 / 3, new Vector2(mygame.Window.ClientBounds.Width + 20 * i, 600 * i), player));
-                    addInimigo(new Fly(mygame, imgInimigoFly, 2, 10, 87 / 3, positionfly, player));
-                }
-                CriaInimigoFly = 6000;
+                addInimigo(new Fly(mygame,imgInimigoFly,3,100.0f,imgInimigoFly.Width/3,positionfly,player));
+                CriaInimigoFly = 1000;
             }
             if(criaChefe < 0){
-                addInimigo(new Chefe(mygame, imgChefe, 30, 10, imgChefe.Width/4,this));
+                addInimigo(new Chefe(mygame, imgChefe, 50, 200, imgChefe.Width/4,this));
                 criaChefe = 50000;
+                inimigo = false;
             }
-            
+
             //fim inimigos-------------------------------------------------------------------------------------
             if (isPressed(Microsoft.Xna.Framework.Input.Keys.Up, Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickUp))
             {

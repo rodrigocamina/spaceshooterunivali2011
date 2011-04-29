@@ -46,7 +46,7 @@ namespace XNAGameSpaceShotter.src.bean
         public override void Draw(GameTime gameTime)
         {
             mygame.spriteBatch.Draw(imgInimigo, positionInimigo, new Rectangle(frame * largura, 0, largura, altura), Color.White);
-            mygame.spriteBatch.Draw(life, new Rectangle((int)positionInimigo.X, (int)positionInimigo.Y - 20, hp, 20), Color.White);
+            //mygame.spriteBatch.Draw(life, new Rectangle((int)positionInimigo.X, (int)positionInimigo.Y - 20, hp, 10), Color.White);
             
         }
 
