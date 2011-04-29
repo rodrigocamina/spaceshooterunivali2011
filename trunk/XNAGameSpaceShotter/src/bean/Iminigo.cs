@@ -23,12 +23,12 @@ namespace XNAGameSpaceShotter.src.bean
         public Vector2 positionInimigo;
         public Texture2D imgInimigo;
         public int hp;
-        public int velocidadeInimigo;
+        public float velocidadeInimigo;
         public int largura;
         public int altura;
 
 
-        public Inimigo(GameCore game, Texture2D imgInimigo, int hp, int velocidadeInimigo, int largura)
+        public Inimigo(GameCore game, Texture2D imgInimigo, int hp, float velocidadeInimigo, int largura)
             : base(game, imgInimigo)
         {
             this.imgInimigo = imgInimigo;

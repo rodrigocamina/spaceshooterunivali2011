@@ -62,7 +62,7 @@ namespace XNAGameSpaceShotter {
             fonteLetras = Content.Load<SpriteFont>("OpenFont");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            setScreen(new SplashScreen(this));
+            setScreen(new ScreenSplash(this));
         }
 
         /// <summary>
