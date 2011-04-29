@@ -49,10 +49,11 @@ namespace XNAGameSpaceShotter.src.bean
                 if (((this.posicao.X > ini.positionInimigo.X)&&(this.posicao.X < ini.positionInimigo.X + 80))&&
                     ((this.posicao.Y > ini.positionInimigo.Y) && (this.posicao.Y < ini.positionInimigo.Y + ini.imgInimigo.Height)))
                 {                    screen.removeComponent(this);
-                    inimigos[i].hp --;
-                    if(inimigos[i].hp < 0){
-                        screen.removeComponent(inimigos[i]);
-                            screen.inimigos.Remove(inimigos[i]);
+                    ini.hp --;
+                    if(ini.hp < 0){
+                        screen.addComponent(new Explosao(mygame, new Vector3(ini.positionInimigo.X, ini.positionInimigo.Y, 0), 2, screen));
+                        screen.removeComponent(ini);
+                        screen.inimigos.Remove(ini);
                         
                     }
                 }

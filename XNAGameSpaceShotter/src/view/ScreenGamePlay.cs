@@ -46,7 +46,11 @@ namespace XNAGameSpaceShotter.src.view
         int positionBack3old;
         float diff;
         float velocidadebg = 100;
-        
+
+        Vector2 animacao = Vector2.Zero;
+        Texture2D bg;
+        List<Vector2> bgpos = new List<Vector2>();
+        int szbg;
 
         public ScreenGamePlay(GameCore game)
             : base(game)
@@ -58,13 +62,25 @@ namespace XNAGameSpaceShotter.src.view
            // positionBack2 = positionBack2old;
            // positionBack3 = positionBack3old;
 
+            bg = mygame.Content.Load<Texture2D>("bg");
+            int width = game.Window.ClientBounds.Right - game.Window.ClientBounds.Left;
+            int height = game.Window.ClientBounds.Bottom - game.Window.ClientBounds.Top;
+            while (width > 0) {
+                width -= 200;
+                int htemp = height;
+                while (htemp > -200) {
+                    htemp -= 200;
+                    bgpos.Add(new Vector2(width, htemp));
+                }
+            }
+            szbg = bgpos.Count;
         }
 
 
         public override void loadComponents()
         {
             imagePlayer = mygame.Content.Load<Texture2D>("naveP");
-            imageVida = mygame.Content.Load<Texture2D>("Player");
+            imageVida = mygame.Content.Load<Texture2D>("naveP");
             imageTiroPlayer = mygame.Content.Load<Texture2D>("TiroPlayer");
             imgInimigoMisseis = mygame.Content.Load<Texture2D>("lancadorDeMisseis");
             imgInimigoFly = mygame.Content.Load<Texture2D>("mosca2");
@@ -75,7 +91,9 @@ namespace XNAGameSpaceShotter.src.view
 
         public override void Draw(GameTime gameTime)
         {
-            mygame.spriteBatch.Draw(background, new Rectangle(0, (int)positionBack1, mygame.Window.ClientBounds.Width, mygame.Window.ClientBounds.Height), Color.White);
+            for (int i = 0; i < szbg; i++) {
+                mygame.spriteBatch.Draw(bg, bgpos[i] + animacao, Color.White);
+            }
             base.Draw(gameTime);
             for (int i = 0; i < player.vida;i++ )
             {
@@ -94,6 +112,10 @@ namespace XNAGameSpaceShotter.src.view
         {
             base.Update(gameTime);
             int tempo = (int)gameTime.ElapsedGameTime.Milliseconds;
+            animacao.Y += tempo / 50.0f;
+            if (animacao.Y > 200) {
+                animacao.Y -= 200;
+            }
             diff = gameTime.ElapsedGameTime.Milliseconds/1000.0f;
             delay -= tempo;
             CriaInimigoMisseis -= tempo;

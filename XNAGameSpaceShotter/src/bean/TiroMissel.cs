@@ -74,8 +74,8 @@ namespace XNAGameSpaceShotter.src.bean
 
         public void colisao()
         {
-            Vector3 A = new Vector3(screen.player.positionPlayer.X, screen.player.positionPlayer.Y, 0);
-            Vector3 B = new Vector3(screen.player.positionPlayer.X + screen.player.imgPlayer.Width, screen.player.positionPlayer.Y + screen.player.imgPlayer.Height, 0);
+            Vector3 A = new Vector3(screen.player.positionPlayer.X+5, screen.player.positionPlayer.Y+10, 0);
+            Vector3 B = new Vector3(screen.player.positionPlayer.X + 44, screen.player.positionPlayer.Y + screen.player.imgPlayer.Height - 13, 0);
 
             Vector3 C = new Vector3(posicao.X, posicao.Y, 0);
             Vector3 D = new Vector3(posicao.X + largura, posicao.Y + image.Height, 0);
@@ -86,8 +86,10 @@ namespace XNAGameSpaceShotter.src.bean
             if (boxEnemy.Intersects(boxPlayer))
             {
                 screen.removeComponent(this);
+                screen.addComponent(new Explosao(mygame, C + new Vector3(0, 10, 0), 1, screen));
                 screen.player.hp--;
                 if (screen.player.hp < 0) {
+                    screen.addComponent(new Explosao(mygame, new Vector3(screen.player.positionPlayer.X, screen.player.positionPlayer.Y, 0), 2, screen));
                     screen.player.vida--;
                     screen.player.hp = 5;
                 }
