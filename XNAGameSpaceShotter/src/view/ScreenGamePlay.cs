@@ -74,6 +74,7 @@ namespace XNAGameSpaceShotter.src.view
                 }
             }
             szbg = bgpos.Count;
+            mygame.sons.playSong(2);
         }
 
 

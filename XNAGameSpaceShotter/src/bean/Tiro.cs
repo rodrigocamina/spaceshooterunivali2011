@@ -23,6 +23,7 @@ namespace XNAGameSpaceShotter.src.bean
             this.velocidade = velocidade;
             this.dano = dano;
             this.screen = screen;
+            mygame.sons.playSound(2);
         }
 
         public override void Draw(GameTime gameTime)

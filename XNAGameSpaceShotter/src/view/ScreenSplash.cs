@@ -39,6 +39,7 @@ namespace XNAGameSpaceShotter.src.view {
                 }
             }
             szbg = bgpos.Count;
+            mygame.sons.playSong(0);
         }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {
             base.Update(gameTime);
@@ -52,6 +53,7 @@ namespace XNAGameSpaceShotter.src.view {
                 timer = -500;
                 int wSprite = 25;
                 passa = new Sprite(mygame, mygame.Content.Load<Texture2D>("explosao2"), wSprite, 10, new Vector3(-800, -600, 0), 100);
+                mygame.sons.playSound(1);
                 passa.sprite = 1;
                 addComponent(passa);
 
