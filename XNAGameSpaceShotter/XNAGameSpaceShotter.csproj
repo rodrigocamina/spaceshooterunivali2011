@@ -111,6 +111,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="GameCore.cs" />
     <Compile Include="src\bean\Button.cs" />
+    <Compile Include="src\bean\Chefe.cs" />
     <Compile Include="src\bean\Sprite.cs" />
     <Compile Include="src\bean\Fly.cs" />
     <Compile Include="src\bean\Iminigo.cs" />

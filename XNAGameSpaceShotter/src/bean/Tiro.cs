@@ -13,6 +13,7 @@ namespace XNAGameSpaceShotter.src.bean
         public int dano;
         public Texture2D image;
         public ScreenGamePlay screen;
+        Chefe chefe;
 
         public Tiro(GameCore game, Texture2D image , Vector2 posicao, int velocidade, int dano, ScreenGamePlay screen)
             : base(game, image)
@@ -49,9 +50,10 @@ namespace XNAGameSpaceShotter.src.bean
                     ((this.posicao.Y > ini.positionInimigo.Y) && (this.posicao.Y < ini.positionInimigo.Y + ini.imgInimigo.Height)))
                 {                    screen.removeComponent(this);
                     inimigos[i].hp --;
-                    if(inimigos[i].hp < 0){ 
+                    if(inimigos[i].hp < 0){
                         screen.removeComponent(inimigos[i]);
-                        screen.inimigos.Remove(inimigos[i]);
+                            screen.inimigos.Remove(inimigos[i]);
+                        
                     }
                 }
             }

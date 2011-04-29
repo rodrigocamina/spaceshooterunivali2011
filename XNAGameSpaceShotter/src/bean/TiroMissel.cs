@@ -65,6 +65,11 @@ namespace XNAGameSpaceShotter.src.bean
                 }
 
             }
+
+            if(posicao.Y > mygame.Window.ClientBounds.Height){
+                screen.removeComponent(this);
+            
+            }
         }
 
         public void colisao()
