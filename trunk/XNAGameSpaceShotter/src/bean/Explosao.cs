@@ -12,6 +12,7 @@ namespace XNAGameSpaceShotter.src.bean {
         public Explosao(GameCore mygame, Vector3 position, float scale,Screen screen):base(mygame, mygame.Content.Load<Texture2D>("explosao2"), 25, 10, position, scale) {
             this.screen = screen;
             sprite = 1;
+            mygame.sons.playSound(0);
         }
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);

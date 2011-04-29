@@ -23,6 +23,7 @@ namespace XNAGameSpaceShotter {
         public Matrix projectionMatrix;
         public RepositorioDeModelos modelos;
         public RepositorioDeTexturas texturas;
+        public RepositorioDeSons sons;
         public SpriteFont fonteLetras;
         public Vector3 cameraPosition = new Vector3(15000.0f, 8000.0f, GameConstants.CameraHeight);
         public Vector3 cameraFocus = new Vector3(15000.0f, 8000.0f, 0);
@@ -59,6 +60,7 @@ namespace XNAGameSpaceShotter {
             // Create a new SpriteBatch, which can be used to draw textures.
             modelos = new RepositorioDeModelos(this);
             texturas = new RepositorioDeTexturas(this);
+            sons = new RepositorioDeSons(this);
             fonteLetras = Content.Load<SpriteFont>("OpenFont");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here

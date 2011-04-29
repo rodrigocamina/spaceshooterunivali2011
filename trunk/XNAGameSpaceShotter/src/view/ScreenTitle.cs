@@ -57,6 +57,7 @@ namespace XNAGameSpaceShotter.src.view {
                 }
             }
             szbg = bgpos.Count;
+            mygame.sons.playSong(1);
         }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {
             base.Update(gameTime);

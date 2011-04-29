@@ -29,6 +29,7 @@ namespace XNAGameSpaceShotter.src.bean
             this.screen = screen;
             this.largura = largura;
             this.altura = image.Height;
+            mygame.sons.playSound(2);
         }
 
         public override void Draw(GameTime gameTime)
