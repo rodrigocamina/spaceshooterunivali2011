@@ -101,7 +101,7 @@ namespace XNAGameSpaceShotter.src.bean
                     }
                     else {
                         screen.removeComponent(this);
-                        mygame.setScreen(new ScreenGamePlay(mygame));
+                        mygame.setScreen(new ScreenSplash(mygame));
                     }
                     
                 }

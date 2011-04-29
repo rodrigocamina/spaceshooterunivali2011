@@ -190,6 +190,63 @@
       <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\labelTitle.xnb</Output>
       <Time>2011-04-28T15:22:52.8003641-03:00</Time>
     </Item>
+    <Item>
+      <Source>Battle mode.mp3</Source>
+      <Name>Battle mode</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\Battle mode.xnb</Output>
+      <Extra>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\Battle mode.wma</Extra>
+      <Time>2011-04-30T16:39:41.4737238-03:00</Time>
+    </Item>
+    <Item>
+      <Source>bike chase.mp3</Source>
+      <Name>bike chase</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\bike chase.xnb</Output>
+      <Extra>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\bike chase.wma</Extra>
+      <Time>2011-04-30T16:39:41.4607231-03:00</Time>
+    </Item>
+    <Item>
+      <Source>Human nature.mp3</Source>
+      <Name>Human nature</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\Human nature.xnb</Output>
+      <Extra>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\Human nature.wma</Extra>
+      <Time>2011-04-30T16:39:41.4037198-03:00</Time>
+    </Item>
+    <Item>
+      <Source>bigExplosionSound.wav</Source>
+      <Name>bigExplosionSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\bigExplosionSound.xnb</Output>
+      <Time>2011-04-30T16:39:41.442722-03:00</Time>
+    </Item>
+    <Item>
+      <Source>explosionSound.wav</Source>
+      <Name>explosionSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\explosionSound.xnb</Output>
+      <Time>2011-04-30T16:39:41.424721-03:00</Time>
+    </Item>
+    <Item>
+      <Source>shot.wav</Source>
+      <Name>shot</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\devon\Desktop\projeto Space Shooter\XNAGameSpaceShotter\bin\x86\Debug\Content\shot.xnb</Output>
+      <Time>2011-04-30T16:39:41.4487224-03:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

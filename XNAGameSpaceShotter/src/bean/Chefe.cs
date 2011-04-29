@@ -36,6 +36,7 @@ namespace XNAGameSpaceShotter.src.bean
          Texture2D life;
          int tempoTiro = 500;
          Boolean naoDesse = false;
+         Boolean direita = false;
 
          public Chefe(GameCore game, Texture2D imgInimigo, int hp, int velocidadeInimigo, int largura, ScreenGamePlay screen)
             : base(game, imgInimigo,hp,velocidadeInimigo,largura)
@@ -74,11 +75,26 @@ namespace XNAGameSpaceShotter.src.bean
             {
                 positionInimigo.Y += velocidadeInimigo * diff;
             }
-            else if (positionInimigo.X < mygame.Window.ClientBounds.Width - largura)
+            if (direita)
             {
-                positionInimigo.X += velocidadeInimigo * diff;
-               if(positionInimigo.X > mygame.Window.ClientBounds.Width - largura){
-                   positionInimigo.X -= velocidadeInimigo * diff;
+                if (positionInimigo.X < mygame.Window.ClientBounds.Width - largura)
+                {
+                    positionInimigo.X += velocidadeInimigo * diff;
+                }
+                else
+                {
+                    direita = false;
+                }
+            }
+            else
+            {
+                if (positionInimigo.X > 0)
+                {
+                    positionInimigo.X -= velocidadeInimigo * diff;
+                }
+                else
+                {
+                    direita = true;
                 }
             }
 
