@@ -71,11 +71,11 @@ namespace XNAGameSpaceShotter.src.bean
         {
             for (int i = 0; i < inimigos.Count; i++)
             {
-                Vector3 A = new Vector3(positionPlayer.X, positionPlayer.Y, 0);
-                Vector3 B = new Vector3(positionPlayer.X + imgPlayer.Width, positionPlayer.Y + imgPlayer.Height, 0);
+                Vector3 A = new Vector3(positionPlayer.X+5, positionPlayer.Y, 0);
+                Vector3 B = new Vector3(positionPlayer.X + 44, positionPlayer.Y + imgPlayer.Height, 0);
 
-                Vector3 C = new Vector3(inimigos[i].positionInimigo.X, inimigos[i].positionInimigo.Y, 0);
-                Vector3 D = new Vector3(inimigos[i].positionInimigo.X + inimigos[i].largura, inimigos[i].positionInimigo.Y + inimigos[i].imgInimigo.Height, 0);
+                Vector3 C = new Vector3(inimigos[i].positionInimigo.X, inimigos[i].positionInimigo.Y+10, 0);
+                Vector3 D = new Vector3(inimigos[i].positionInimigo.X + inimigos[i].largura, inimigos[i].positionInimigo.Y + inimigos[i].imgInimigo.Height-13, 0);
 
                 BoundingBox boxPlayer = new BoundingBox(A, B);
                 BoundingBox boxEnemy = new BoundingBox(C, D);
@@ -84,6 +84,7 @@ namespace XNAGameSpaceShotter.src.bean
                 {
                     screen.removeComponent(inimigos[i]);
                     screen.inimigos.Remove(inimigos[i]);
+                    screen.addComponent(new Explosao(mygame, C, 2, screen));
 
                     if (hp > 0)
                     {
@@ -92,6 +93,7 @@ namespace XNAGameSpaceShotter.src.bean
                     else {
                         vida--;
                         hp = 5;
+                        screen.addComponent(new Explosao(mygame, new Vector3(screen.player.positionPlayer.X, screen.player.positionPlayer.Y, 0), 2, screen));
                     }
                     if (vida > 0)
                     {
