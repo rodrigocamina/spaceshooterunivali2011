@@ -32,12 +32,12 @@ namespace XNAGameSpaceShotter.src.view {
             bt1 = new Button(gamecore, mygame.Content.Load<Texture2D>("Button"), mygame.Content.Load<Texture2D>("labelStart"), mygame.Content.Load<Texture2D>("ButtonS2"), 23, new Vector3(width / 3 - 50, height * 4 / 5, 0),new ScriptBt1(mygame),1.4f);
             bt2 = new Button(gamecore, mygame.Content.Load<Texture2D>("Button"), mygame.Content.Load<Texture2D>("labelEject"), mygame.Content.Load<Texture2D>("ButtonS2"), 23, new Vector3(width * 2 / 3 - 50, height * 4 / 5, 0), new ScriptBt2(mygame), 1.4f);
             for (int i = 0; i < 3; i++) {
-                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 54, 4, new Vector3(rnd.Next(wwidth), height + height + rnd.Next(600 + height), 0), (float)((rnd.NextDouble() + 1) / 2));
+                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"),  4, new Vector3(rnd.Next(wwidth), height + height + rnd.Next(600 + height), 0), (float)((rnd.NextDouble() + 1) / 2));
                 addComponent(nave);
                 naves.Add(nave);
             }
             for (int i = 0; i < 30; i++) {
-                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("mosca2"), 29, 3, new Vector3(rnd.Next(wwidth), -rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
+                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("mosca2"),  3, new Vector3(rnd.Next(wwidth), -rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
                 addComponent(nave);
                 navesInimigas.Add(nave);
             }
@@ -93,7 +93,7 @@ namespace XNAGameSpaceShotter.src.view {
                 if (nave.positionRect.Y < -nave.positionRect.Height) {
                     removeComponent(nave);
                     naves.Remove(nave);
-                    nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 54, 4, new Vector3(rnd.Next(wwidth), wheight + rnd.Next(600 + wheight), 0), (float)((rnd.NextDouble() + 1) / 2));
+                    nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 4, new Vector3(rnd.Next(wwidth), wheight + rnd.Next(600 + wheight), 0), (float)((rnd.NextDouble() + 1) / 2));
                     addComponent(nave);
                     naves.Add(nave);
                 }
@@ -104,7 +104,7 @@ namespace XNAGameSpaceShotter.src.view {
                 if (nave.positionRect.Y > nave.positionRect.Height+wheight) {
                     removeComponent(nave);
                     navesInimigas.Remove(nave);
-                    nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("mosca2"), 29, 3, new Vector3(rnd.Next(wwidth), -rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
+                    nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("mosca2"), 3, new Vector3(rnd.Next(wwidth), -rnd.Next(600), 0), (float)((rnd.NextDouble() + 1) / 2));
                     addComponent(nave);
                     navesInimigas.Add(nave);
                 }
