@@ -29,6 +29,7 @@ namespace XNAGameSpaceShotter.src.bean
         Player player;
         Texture2D life;
         Vector2 positionfly;
+        Sprite image;
 
         public Fly(GameCore game, Texture2D imgInimigo, int hp, float velocidadeInimigo, int largura, Vector2 positionfly, Player player)
             : base(game, imgInimigo,hp,velocidadeInimigo,largura)
@@ -41,8 +42,8 @@ namespace XNAGameSpaceShotter.src.bean
         public override void Draw(GameTime gameTime)
         {
            // mygame.spriteBatch.Draw(life, new Rectangle((int)positionInimigo.X, (int)positionInimigo.Y, hp, 20), Color.White);
-            mygame.spriteBatch.Draw(imgInimigo, positionInimigo, new Rectangle(frame * largura, 0, largura, altura), Color.White);
-
+            //mygame.spriteBatch.Draw(imgInimigo, positionInimigo, new Rectangle(frame * largura, 0, largura, altura), Color.White);
+            image.Draw(gameTime);
         }
 
         public override void Update(GameTime gameTime)
@@ -67,7 +68,7 @@ namespace XNAGameSpaceShotter.src.bean
                 positionInimigo.Y += velocidadeInimigo * diff;
                 positionInimigo.X += velocidadeInimigo * diff;
             }
-
+            image.Update(gameTime);
             //TIRO
             //if (frame == 3)
             //{

@@ -24,7 +24,7 @@ namespace XNAGameSpaceShotter.src.view {
             int width = this.width = gamecore.Window.ClientBounds.Right - gamecore.Window.ClientBounds.Left;
             int height = this.height = gamecore.Window.ClientBounds.Bottom - gamecore.Window.ClientBounds.Top;
             for (int i = 0; i < 30;i++ ) {
-                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 54, 4, new Vector3(rnd.Next(600), rnd.Next(600), 0), (float)((rnd.NextDouble() + 1)/2));
+                Sprite nave = new Sprite(mygame, mygame.Content.Load<Texture2D>("naveP"), 4, new Vector3(rnd.Next(600), rnd.Next(600), 0), (float)((rnd.NextDouble() + 1)/2));
                 addComponent(nave);
                 naves.Add(nave);
             }
@@ -51,8 +51,7 @@ namespace XNAGameSpaceShotter.src.view {
                 timer -= gameTime.ElapsedGameTime.Milliseconds;
             } else if (timer != -500) {
                 timer = -500;
-                int wSprite = 25;
-                passa = new Sprite(mygame, mygame.Content.Load<Texture2D>("explosao2"), wSprite, 10, new Vector3(-800, -600, 0), 100);
+                passa = new Sprite(mygame, mygame.Content.Load<Texture2D>("explosao2"), 10, new Vector3(-800, -600, 0), 100);
                 mygame.sons.playSound(1);
                 passa.sprite = 1;
                 addComponent(passa);
