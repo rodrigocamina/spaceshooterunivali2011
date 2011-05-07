@@ -26,9 +26,10 @@ namespace XNAGameSpaceShotter.src.bean
         public float velocidadeInimigo;
         public int largura;
         public int altura;
+        public int score;
 
 
-        public Inimigo(GameCore game, Texture2D imgInimigo, int hp, float velocidadeInimigo, int largura)
+        public Inimigo(GameCore game, Texture2D imgInimigo, int hp, float velocidadeInimigo, int largura,int score)
             : base(game, imgInimigo)
         {
             this.imgInimigo = imgInimigo;
@@ -36,6 +37,7 @@ namespace XNAGameSpaceShotter.src.bean
             this.velocidadeInimigo = velocidadeInimigo;
             this.largura = largura;
             this.altura = imgInimigo.Height;
+            this.score = score;
         }
 
         public override void Draw(GameTime gameTime)

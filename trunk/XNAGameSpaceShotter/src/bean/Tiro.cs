@@ -49,9 +49,11 @@ namespace XNAGameSpaceShotter.src.bean
                 Inimigo ini = inimigos[i];
                 if (((this.posicao.X > ini.positionInimigo.X)&&(this.posicao.X < ini.positionInimigo.X + 80))&&
                     ((this.posicao.Y > ini.positionInimigo.Y) && (this.posicao.Y < ini.positionInimigo.Y + ini.imgInimigo.Height)))
-                {                    screen.removeComponent(this);
+                {                    
+                    screen.removeComponent(this);
                     ini.hp --;
                     if(ini.hp < 0){
+                        screen.player.score += screen.inimigos[i].score;
                         screen.addComponent(new Explosao(mygame, new Vector3(ini.positionInimigo.X, ini.positionInimigo.Y, 0), 2, screen));
                         screen.removeComponent(ini);
                         screen.inimigos.Remove(ini);

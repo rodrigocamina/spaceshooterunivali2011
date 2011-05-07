@@ -29,21 +29,23 @@ namespace XNAGameSpaceShotter.src.bean
         Player player;
         Texture2D life;
         Vector2 positionfly;
-        Sprite image;
+        int score;
+        //Sprite image;  como fazer
 
-        public Fly(GameCore game, Texture2D imgInimigo, int hp, float velocidadeInimigo, int largura, Vector2 positionfly, Player player)
-            : base(game, imgInimigo,hp,velocidadeInimigo,largura)
+        public Fly(GameCore game, Texture2D imgInimigo, int hp, float velocidadeInimigo, int largura, Vector2 positionfly, Player player, int score)
+            : base(game, imgInimigo,hp,velocidadeInimigo,largura,score)
         {
             this.positionInimigo = positionfly;
             this.player = player;
             life = mygame.Content.Load<Texture2D>("life");
+            this.score = score;
         }
 
         public override void Draw(GameTime gameTime)
         {
            // mygame.spriteBatch.Draw(life, new Rectangle((int)positionInimigo.X, (int)positionInimigo.Y, hp, 20), Color.White);
-            //mygame.spriteBatch.Draw(imgInimigo, positionInimigo, new Rectangle(frame * largura, 0, largura, altura), Color.White);
-            image.Draw(gameTime);
+            mygame.spriteBatch.Draw(imgInimigo, positionInimigo, new Rectangle(frame * largura, 0, largura, altura), Color.White);
+            // image.Draw(gameTime);como fazer
         }
 
         public override void Update(GameTime gameTime)
@@ -68,7 +70,7 @@ namespace XNAGameSpaceShotter.src.bean
                 positionInimigo.Y += velocidadeInimigo * diff;
                 positionInimigo.X += velocidadeInimigo * diff;
             }
-            image.Update(gameTime);
+            //image.Update(gameTime);  como fazer
             //TIRO
             //if (frame == 3)
             //{

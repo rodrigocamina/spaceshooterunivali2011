@@ -14,6 +14,7 @@ using XNAGameSpaceShotter;
 using XNAGameSpaceShotter.src.view.template;
 using XNAGameSpaceShotter.src.bean;
 using System.Collections;
+using System.Text;
 
 
 namespace XNAGameSpaceShotter.src.view
@@ -29,8 +30,10 @@ namespace XNAGameSpaceShotter.src.view
         public int delay = 200;
         public Texture2D imgInimigoMisseis;
         Texture2D imgInimigoFly;
-        public int CriaInimigoMisseis = 3000;
-        public int CriaInimigoFly = 6000;
+        int CriaInimigoMisseis = 3000;
+        int CriaInimigoFly = 6000;
+        int CriaInimigoDual = 2000;
+        int CriaInimigoMetralhadora = 2000;
         int indice;
         int numeroDeFly = 5;
         Texture2D imageVida;
@@ -39,13 +42,16 @@ namespace XNAGameSpaceShotter.src.view
         Texture2D background;
         Boolean inimigo = true;
         float diff;
-        
         static Random rnd = new Random();
         Vector2 positionfly;
         Vector2 animacao = Vector2.Zero;
         Texture2D bg;
         List<Vector2> bgpos = new List<Vector2>();
         int szbg;
+        Texture2D imageDualGuns;
+        Texture2D imageMetralhadora;
+        SpriteFont tipeFont;
+        string scorePanel ="";
 
         public ScreenGamePlay(GameCore game)
             : base(game)
@@ -76,7 +82,11 @@ namespace XNAGameSpaceShotter.src.view
             imgInimigoFly = mygame.Content.Load<Texture2D>("mosca2");
             imgChefe = mygame.Content.Load<Texture2D>("nave");
             background = mygame.Content.Load<Texture2D>("bg");
+            imageDualGuns = mygame.Content.Load<Texture2D>("dualgun");
+            imageMetralhadora = mygame.Content.Load<Texture2D>("metralhadora");
             addComponent(player = new Player(mygame, imagePlayer, new Vector2(400, 400), 3, 5, 3, this));
+            tipeFont = mygame.Content.Load<SpriteFont>(@"OpenFont");
+            
         }
 
         public override void Draw(GameTime gameTime)
@@ -88,7 +98,7 @@ namespace XNAGameSpaceShotter.src.view
             for (int i = 0; i < player.vida;i++ )
             {
                 mygame.spriteBatch.Draw(imageVida, new Rectangle(30*i+10, mygame.Window.ClientBounds.Height - 30, 30, 30), Color.White);
-      
+                mygame.spriteBatch.DrawString(tipeFont, scorePanel, new Vector2(500, 30), Color.GreenYellow);
             }
             
         }
@@ -114,23 +124,40 @@ namespace XNAGameSpaceShotter.src.view
             CriaInimigoMisseis -= tempo;
             CriaInimigoFly -= tempo;
             criaChefe -= tempo;
-            //inimigos-----------------------------------------------------------------------------------------
-            if (CriaInimigoMisseis <= 0 && inimigo == true)
-            {
-                addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis,6, 100, 80, this));
-                CriaInimigoMisseis = 3000;
+            CriaInimigoDual -= tempo;
+            CriaInimigoMetralhadora -= tempo;
 
-            }
-            if (CriaInimigoFly <= 0 && inimigo == true)
+            //inimigos-----------------------------------------------------------------------------------------
+            //if (CriaInimigoMisseis <= 0 && inimigo == true)
+            //{
+            //    addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this,10));
+            //    CriaInimigoMisseis = 3000;
+
+            //}
+            //if (CriaInimigoFly <= 0 && inimigo == true)
+            //{
+            //    addInimigo(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player,10));
+            //    CriaInimigoFly = 1000;
+            //}
+            //if (CriaInimigoDual <= 0 && inimigo == true)
+            //{
+            //    addInimigo(new DualGuns(mygame, imageDualGuns, 10, 100, 0,10));
+            //    CriaInimigoDual = 2000;
+            //}
+            if (CriaInimigoMetralhadora <= 0 && inimigo == true)
             {
-                addInimigo(new Fly(mygame,imgInimigoFly,3,100.0f,imgInimigoFly.Width/3,positionfly,player));
-                CriaInimigoFly = 1000;
+                addInimigo(new Metralhadora(mygame, imageMetralhadora, 10, 100, 0,this,10));
+                CriaInimigoMetralhadora = 2000;
             }
-            if(criaChefe < 0){
-                addInimigo(new Chefe(mygame, imgChefe, 50, 200, imgChefe.Width/4,this));
+            if (criaChefe < 0 && inimigo == true)
+            {
+                addInimigo(new Chefe(mygame, imgChefe, 50, 200, imgChefe.Width / 4, this,100));
                 criaChefe = 50000;
                 inimigo = false;
             }
+
+            Console.WriteLine("Score:"+player.score);
+            scorePanel = "Score:   " + player.score;
 
             //fim inimigos-------------------------------------------------------------------------------------
             if (isPressed(Microsoft.Xna.Framework.Input.Keys.Up, Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickUp))

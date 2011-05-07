@@ -33,14 +33,16 @@ namespace XNAGameSpaceShotter.src.bean
         ScreenGamePlay screen;
         Boolean tiro = true;
         Texture2D life;
-
-        public LancadorMisseis(GameCore game, Texture2D imgInimigo, int hp, int velocidadeInimigo, int largura, ScreenGamePlay screen)
-            : base(game, imgInimigo,hp,velocidadeInimigo,largura)
+       
+        
+        public LancadorMisseis(GameCore game, Texture2D imgInimigo, int hp, int velocidadeInimigo, int largura, ScreenGamePlay screen, int score)
+            : base(game, imgInimigo, hp, velocidadeInimigo, largura, score)
         {
             positionInimigo = new Vector2(rnd.Next(mygame.Window.ClientBounds.Width), 0);
             this.screen = screen;
             imgTiro = mygame.Content.Load<Texture2D>("missel");
             life = mygame.Content.Load<Texture2D>("life");
+            this.score = score;
         }
 
         public override void Draw(GameTime gameTime)
