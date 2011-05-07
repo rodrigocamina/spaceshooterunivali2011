@@ -38,14 +38,16 @@ namespace XNAGameSpaceShotter.src.bean
          Boolean naoDesse = false;
          Boolean direita = false;
 
-         public Chefe(GameCore game, Texture2D imgInimigo, int hp, int velocidadeInimigo, int largura, ScreenGamePlay screen)
-            : base(game, imgInimigo,hp,velocidadeInimigo,largura)
+
+         public Chefe(GameCore game, Texture2D imgInimigo, int hp, int velocidadeInimigo, int largura, ScreenGamePlay screen, int score)
+            : base(game, imgInimigo,hp,velocidadeInimigo,largura,score)
         {
             positionInimigo = new Vector2(rnd.Next(mygame.Window.ClientBounds.Width), 0);
             this.screen = screen;
             imgMisseel = mygame.Content.Load<Texture2D>("missel");
             imgTiro = mygame.Content.Load<Texture2D>("TiroPlayer");
             life = mygame.Content.Load<Texture2D>("life");
+            this.score = score;
         }
 
         public override void Draw(GameTime gameTime)
