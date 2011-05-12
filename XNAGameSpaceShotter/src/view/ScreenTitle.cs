@@ -6,6 +6,7 @@ using XNAGameSpaceShotter.src.view.template;
 using XNAGameSpaceShotter.src.bean;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using StorageDemo;
 
 namespace XNAGameSpaceShotter.src.view {
     public class ScreenTitle :Screen {
@@ -26,6 +27,7 @@ namespace XNAGameSpaceShotter.src.view {
 
         public ScreenTitle(GameCore gamecore, Vector2 animacao)
             : base(gamecore) {
+            SaveGame.getInstance().CallLoad();
             this.animacao = animacao;
             int width = wwidth = gamecore.Window.ClientBounds.Right - gamecore.Window.ClientBounds.Left;
             int height = wheight = gamecore.Window.ClientBounds.Bottom - gamecore.Window.ClientBounds.Top;
@@ -124,6 +126,7 @@ namespace XNAGameSpaceShotter.src.view {
             this.g = g;
         }
         public override void execute() {
+            SaveGame.getInstance().CallLoad();
             g.setScreen(new ScreenGamePlay(g));
         }
     }

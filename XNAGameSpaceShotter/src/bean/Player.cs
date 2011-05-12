@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using XNAGameSpaceShotter;
 using XNAGameSpaceShotter.src.view;
+using StorageDemo;
 
 namespace XNAGameSpaceShotter.src.bean
 {
@@ -31,7 +32,7 @@ namespace XNAGameSpaceShotter.src.bean
         public Player(GameCore game, Texture2D imgPlayer, Vector2 positionPlayer, int vida, int hp, int velocidadePlayer, ScreenGamePlay screen)
             : base(game, imgPlayer)
         {
-
+            
             this.positionPlayer = positionPlayer;
             this.imgPlayer = imgPlayer;
             this.vida = vida;
@@ -66,6 +67,77 @@ namespace XNAGameSpaceShotter.src.bean
             
             colisao(screen.inimigos);
 }
+        public StorageDemo.SaveGame.SavePlayer convertToSave()
+        {
+            StorageDemo.SaveGame.SavePlayer saveT = SaveGame.getInstance().player;
+            StorageDemo.SaveGame.SavePlayerBean saveBean = new SaveGame.SavePlayerBean();
+            saveBean.name = "teste";
+            saveBean.score = score;
+            StorageDemo.SaveGame.SavePlayerBean temp;
+            if (saveT.score1.score <= saveBean.score)
+            {
+                temp = saveT.score1;
+                saveT.score1 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score2.score <= saveBean.score)
+            {
+                temp = saveT.score2;
+                saveT.score2 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score3.score <= saveBean.score)
+            {
+                temp = saveT.score3;
+                saveT.score3 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score4.score <= saveBean.score)
+            {
+                temp = saveT.score4;
+                saveT.score4 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score5.score <= saveBean.score)
+            {
+                temp = saveT.score5;
+                saveT.score5 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score6.score <= saveBean.score)
+            {
+                temp = saveT.score6;
+                saveT.score6 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score7.score <= saveBean.score)
+            {
+                temp = saveT.score7;
+                saveT.score7 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score8.score <= saveBean.score)
+            {
+                temp = saveT.score8;
+                saveT.score8 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score9.score <= saveBean.score)
+            {
+                temp = saveT.score9;
+                saveT.score9 = saveBean;
+                saveBean = temp;
+            }
+            if (saveT.score10.score <= saveBean.score)
+            {
+                temp = saveT.score10;
+                saveT.score10 = saveBean;
+                saveBean = temp;
+            }
+
+
+            return saveT;
+        }
 
         public void colisao(List<Inimigo> inimigos)
         {

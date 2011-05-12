@@ -128,6 +128,7 @@
     <Compile Include="src\bean\DualGuns.cs" />
     <Compile Include="src\bean\Explosao.cs" />
     <Compile Include="src\bean\Metralhadora.cs" />
+    <Compile Include="src\bean\SaveGame.cs" />
     <Compile Include="src\bean\Sprite.cs" />
     <Compile Include="src\bean\Fly.cs" />
     <Compile Include="src\bean\Iminigo.cs" />
