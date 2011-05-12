@@ -103,7 +103,6 @@ namespace XNAGameSpaceShotter {
             // TODO: Add your drawing code here
             base.Draw(gameTime);
             actualScreen.Draw(gameTime);
-            spriteBatch.DrawString(fonteLetras, "Rodando a " + gameTime.ElapsedGameTime, new Vector2(50, 50), Color.Black);
             spriteBatch.End();
         }
 
