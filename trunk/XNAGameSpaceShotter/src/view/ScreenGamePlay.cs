@@ -15,6 +15,7 @@ using XNAGameSpaceShotter.src.view.template;
 using XNAGameSpaceShotter.src.bean;
 using System.Collections;
 using System.Text;
+using StorageDemo;
 
 
 namespace XNAGameSpaceShotter.src.view
@@ -52,6 +53,9 @@ namespace XNAGameSpaceShotter.src.view
         Texture2D imageMetralhadora;
         SpriteFont tipeFont;
         string scorePanel ="";
+        SaveGame save;
+
+        float temposave;
 
         public ScreenGamePlay(GameCore game)
             : base(game)
@@ -111,6 +115,7 @@ namespace XNAGameSpaceShotter.src.view
 
         public override void Update(GameTime gameTime)
         {
+            SaveGame.getInstance().Update();
             base.Update(gameTime);
             positionfly = new Vector2(rnd.Next(mygame.Window.ClientBounds.Width), 20);
 
@@ -120,7 +125,6 @@ namespace XNAGameSpaceShotter.src.view
                 animacao.Y -= 200;
             }
             diff = gameTime.ElapsedGameTime.Milliseconds/1000.0f;
-            delay -= tempo;
             CriaInimigoMisseis -= tempo;
             CriaInimigoFly -= tempo;
             criaChefe -= tempo;
@@ -128,27 +132,27 @@ namespace XNAGameSpaceShotter.src.view
             CriaInimigoMetralhadora -= tempo;
 
             //inimigos-----------------------------------------------------------------------------------------
-            //if (CriaInimigoMisseis <= 0 && inimigo == true)
-            //{
-            //    addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this,10));
-            //    CriaInimigoMisseis = 3000;
+            if (CriaInimigoMisseis <= 0 && inimigo == true)
+            {
+                addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+                CriaInimigoMisseis = 3000;
 
-            //}
-            //if (CriaInimigoFly <= 0 && inimigo == true)
-            //{
-            //    addInimigo(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player,10));
-            //    CriaInimigoFly = 1000;
-            //}
+            }
+            if (CriaInimigoFly <= 0 && inimigo == true)
+            {
+                addInimigo(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+                CriaInimigoFly = 1000;
+            }
             //if (CriaInimigoDual <= 0 && inimigo == true)
             //{
-            //    addInimigo(new DualGuns(mygame, imageDualGuns, 10, 100, 0,10));
+            //    addInimigo(new DualGuns(mygame, imageDualGuns, 10, 100, 0, 10));
             //    CriaInimigoDual = 2000;
             //}
-            if (CriaInimigoMetralhadora <= 0 && inimigo == true)
-            {
-                addInimigo(new Metralhadora(mygame, imageMetralhadora, 10, 100, 0,this,10));
-                CriaInimigoMetralhadora = 2000;
-            }
+            //if (CriaInimigoMetralhadora <= 0 && inimigo == true)
+            //{
+            //    addInimigo(new Metralhadora(mygame, imageMetralhadora, 10, 100, 0,this,10));
+            //    CriaInimigoMetralhadora = 2000;
+            //}
             if (criaChefe < 0 && inimigo == true)
             {
                 addInimigo(new Chefe(mygame, imgChefe, 50, 200, imgChefe.Width / 4, this,100));
@@ -188,14 +192,29 @@ namespace XNAGameSpaceShotter.src.view
                     player.positionPlayer.X += player.velocidadePlayer;
                 }
             }
-            if (isPressed(Microsoft.Xna.Framework.Input.Keys.Space, Microsoft.Xna.Framework.Input.Buttons.RightTrigger))
+            if(temposave<0){
+                if (isPressed(Microsoft.Xna.Framework.Input.Keys.S, Microsoft.Xna.Framework.Input.Buttons.Back))
+                {
+                    Console.WriteLine("tentando salvar");
+                    SaveGame.getInstance().CallSave(player.convertToSave());
+                }
+                temposave = 200;
+            }else{
+                temposave -= gameTime.ElapsedGameTime.Milliseconds;
+            }
+
+            if (delay <= 0)
             {
-                if (delay <= 0)
+                if (isPressed(Microsoft.Xna.Framework.Input.Keys.Space, Microsoft.Xna.Framework.Input.Buttons.RightTrigger))
                 {
                     addComponent(new Tiro(mygame, imageTiroPlayer, player.positionPlayer + tiroAjusteEsquerda, -600, 1, this));
                     addComponent(new Tiro(mygame, imageTiroPlayer, player.positionPlayer + tiroAjusteDireita, -600, 1, this));
                     delay = 200;
                 }
+            }
+            else
+            {
+                delay -= gameTime.ElapsedGameTime.Milliseconds;
             }
 
         }

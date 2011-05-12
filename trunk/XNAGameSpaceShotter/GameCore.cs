@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using XNAGameSpaceShotter.src.core;
 using XNAGameSpaceShotter.src.view.template;
 using XNAGameSpaceShotter.src.view;
+using StorageDemo;
 
 namespace XNAGameSpaceShotter {
     /// <summary>
@@ -32,6 +33,7 @@ namespace XNAGameSpaceShotter {
         public GameCore() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.Components.Add(new GamerServicesComponent(this));
             //graphics.IsFullScreen = true;
         }
 
