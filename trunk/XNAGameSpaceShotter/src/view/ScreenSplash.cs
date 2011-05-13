@@ -6,6 +6,7 @@ using XNAGameSpaceShotter.src.view.template;
 using XNAGameSpaceShotter.src.bean;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using StorageDemo;
 
 namespace XNAGameSpaceShotter.src.view {
     public class ScreenSplash: Screen {
@@ -21,6 +22,7 @@ namespace XNAGameSpaceShotter.src.view {
         Sprite passa;
 
         public ScreenSplash(GameCore gamecore):base(gamecore) {
+            SaveGame.getInstance().CallLoad();
             int width = this.width = gamecore.Window.ClientBounds.Right - gamecore.Window.ClientBounds.Left;
             int height = this.height = gamecore.Window.ClientBounds.Bottom - gamecore.Window.ClientBounds.Top;
             for (int i = 0; i < 30;i++ ) {

@@ -21,7 +21,7 @@ namespace XNAGameSpaceShotter.src.bean {
 
         protected Texture2D texture;
         protected int alpha;//alpha de 0 a 255, onde 255 é opaco
-        protected Vector3 position;
+        public Vector3 position;
         protected GameCore mygame;
         private GameCore game;
 
