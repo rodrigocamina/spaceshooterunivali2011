@@ -32,6 +32,16 @@ namespace XNAGameSpaceShotter.src.bean {
                 this.myposition = new Rectangle((int)position.X , (int)position.Y, (int)(scale * text.Width), (int)(scale * text.Height));
                 this.sourceRectangle = new Rectangle(0, 0, wsprites, baseImg.Height);
                 this.script = script;
+            /*
+                System.Console.WriteLine("LETRAS");
+                System.Console.WriteLine("A " + ((int)'a'));
+                System.Console.WriteLine("B " + ((int)'b'));
+                System.Console.WriteLine("Z " + ((int)'z'));
+                System.Console.WriteLine("0 " + ((int)'0'));
+                System.Console.WriteLine("1 " + ((int)'1'));
+                System.Console.WriteLine("9 " + ((int)'9'));*/
+
+
         }
 
         public void setSelected(bool isSelected){

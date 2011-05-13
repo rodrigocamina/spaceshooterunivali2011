@@ -29,8 +29,8 @@ namespace StorageDemo
         public SavePlayer player = new SavePlayer();
         IAsyncResult result;
         Object stateobj;
-        bool GameSaveRequested = false;
-        bool GameLoadRequested = false;
+        public bool GameSaveRequested = false;
+        public bool GameLoadRequested = false;
         GamePadState currentState;
         static SaveGame instance;
         StorageDevice device;
@@ -38,16 +38,7 @@ namespace StorageDemo
         [Serializable]
         public struct SavePlayer
         {
-            public SavePlayerBean score1;
-            public SavePlayerBean score2;
-            public SavePlayerBean score3;
-            public SavePlayerBean score4;
-            public SavePlayerBean score5;
-            public SavePlayerBean score6;
-            public SavePlayerBean score7;
-            public SavePlayerBean score8;
-            public SavePlayerBean score9;
-            public SavePlayerBean score10;
+            public SavePlayerBean[] score;
         }
 
         [Serializable]
@@ -55,6 +46,7 @@ namespace StorageDemo
         {
             public int score;
             public String name;
+            public String date;
         }
         
 

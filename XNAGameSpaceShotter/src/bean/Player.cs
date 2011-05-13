@@ -67,76 +67,56 @@ namespace XNAGameSpaceShotter.src.bean
             
             colisao(screen.inimigos);
 }
+        public static String completer(String n, int complete, String completeToken) {
+            String result = n + "";
+            while(result.Length < complete) {
+                result = completeToken + result;
+            }
+            if (result.Length > complete) {
+                result = result.Substring(0, complete);
+            }
+            return result;
+        }
+
         public StorageDemo.SaveGame.SavePlayer convertToSave()
         {
             StorageDemo.SaveGame.SavePlayer saveT = SaveGame.getInstance().player;
             StorageDemo.SaveGame.SavePlayerBean saveBean = new SaveGame.SavePlayerBean();
-            saveBean.name = "teste";
+            saveBean.name = completer(Gamer.SignedInGamers[PlayerIndex.One].Gamertag, 10, " ");
             saveBean.score = score;
+            DateTime dt = System.DateTime.Now;
+            saveBean.date = completer(dt.Day + "", 2, "0") + "/" + completer(dt.Month + "", 2, "0") + "/" + dt.Year;
             StorageDemo.SaveGame.SavePlayerBean temp;
-            if (saveT.score1.score <= saveBean.score)
-            {
-                temp = saveT.score1;
-                saveT.score1 = saveBean;
-                saveBean = temp;
+            
+            if (saveT.score == null) {
+                saveT.score = new SaveGame.SavePlayerBean[10];
+                saveT.score[0] = saveBean;
+                StorageDemo.SaveGame.SavePlayerBean saveBeanZ = new SaveGame.SavePlayerBean();
+                saveBeanZ.name = completer("---", 10, " ");
+                saveBeanZ.date = "  /  /    ";
+                saveBeanZ.score = 0;
+                saveT.score[1] = saveT.score[2] = saveT.score[3] = saveT.score[4] = saveT.score[5] = saveT.score[6] = saveT.score[7] = saveT.score[8] = saveT.score[9] = saveBeanZ;
+            } else {
+                for (int i = 0; i < 10; i++) {
+                    if (saveT.score[i].score <= saveBean.score) {
+                        temp = saveT.score[i];
+                        saveT.score[i] = saveBean;
+                        saveBean = temp;
+                    }
+                }
             }
-            if (saveT.score2.score <= saveBean.score)
-            {
-                temp = saveT.score2;
-                saveT.score2 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score3.score <= saveBean.score)
-            {
-                temp = saveT.score3;
-                saveT.score3 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score4.score <= saveBean.score)
-            {
-                temp = saveT.score4;
-                saveT.score4 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score5.score <= saveBean.score)
-            {
-                temp = saveT.score5;
-                saveT.score5 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score6.score <= saveBean.score)
-            {
-                temp = saveT.score6;
-                saveT.score6 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score7.score <= saveBean.score)
-            {
-                temp = saveT.score7;
-                saveT.score7 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score8.score <= saveBean.score)
-            {
-                temp = saveT.score8;
-                saveT.score8 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score9.score <= saveBean.score)
-            {
-                temp = saveT.score9;
-                saveT.score9 = saveBean;
-                saveBean = temp;
-            }
-            if (saveT.score10.score <= saveBean.score)
-            {
-                temp = saveT.score10;
-                saveT.score10 = saveBean;
-                saveBean = temp;
-            }
-
-
             return saveT;
+        }
+
+        public static StorageDemo.SaveGame.SavePlayer getMockPlayerSave() {
+            StorageDemo.SaveGame.SavePlayer saveT = SaveGame.getInstance().player;
+            saveT.score = new SaveGame.SavePlayerBean[10];
+            StorageDemo.SaveGame.SavePlayerBean saveBeanZ = new SaveGame.SavePlayerBean();
+            saveBeanZ.name = completer("---", 10, " ");
+            saveBeanZ.date = "  /  /    ";
+                saveBeanZ.score = 0;
+                saveT.score[0] = saveT.score[1] = saveT.score[2] = saveT.score[3] = saveT.score[4] = saveT.score[5] = saveT.score[6] = saveT.score[7] = saveT.score[8] = saveT.score[9] = saveBeanZ;
+                return saveT;
         }
 
         public void colisao(List<Inimigo> inimigos)
