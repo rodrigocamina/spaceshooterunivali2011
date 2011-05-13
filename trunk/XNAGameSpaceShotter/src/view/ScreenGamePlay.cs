@@ -48,12 +48,22 @@ namespace XNAGameSpaceShotter.src.view
         Vector2 animacao = Vector2.Zero;
         Texture2D bg;
         List<Vector2> bgpos = new List<Vector2>();
+
+        List<Inimigo> waves = new List<Inimigo>();
+        List<Inimigo> waveAtiva = new List<Inimigo>();
+        ArrayList fases = new ArrayList();
+        Boolean carrega = true;
+
+        int tempoWave = 2000;
+
         int szbg;
         Texture2D imageDualGuns;
         Texture2D imageMetralhadora;
         SpriteFont tipeFont;
         string scorePanel ="";
         SaveGame save;
+        int play = 0;
+        Boolean ativa = true;
 
         float temposave;
 
@@ -113,6 +123,27 @@ namespace XNAGameSpaceShotter.src.view
             inimigos.Add(x);
         }
 
+        public void caregainimigos() {
+            waves.Add(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            waves.Add(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            waves.Add(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            waves.Add(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            waves.Add(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            waves.Add(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            waves.Add(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            fases.Add(waves);
+            
+            waves.Add(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            waves.Add(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            waves.Add(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            waves.Add(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            waves.Add(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            waves.Add(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            waves.Add(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            fases.Add(waves);
+            
+        }
+
         public override void Update(GameTime gameTime)
         {
             SaveGame.getInstance().Update();
@@ -125,24 +156,49 @@ namespace XNAGameSpaceShotter.src.view
                 animacao.Y -= 200;
             }
             diff = gameTime.ElapsedGameTime.Milliseconds/1000.0f;
-            CriaInimigoMisseis -= tempo;
-            CriaInimigoFly -= tempo;
-            criaChefe -= tempo;
-            CriaInimigoDual -= tempo;
-            CriaInimigoMetralhadora -= tempo;
+
+            //CriaInimigoMisseis -= tempo;
+            //CriaInimigoFly -= tempo;
+            //criaChefe -= tempo;
+            //CriaInimigoDual -= tempo;
+            //CriaInimigoMetralhadora -= tempo;
+
+            tempoWave -= tempo;
 
             //inimigos-----------------------------------------------------------------------------------------
-            if (CriaInimigoMisseis <= 0 && inimigo == true)
-            {
-                addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
-                CriaInimigoMisseis = 3000;
+            if (carrega){
+                caregainimigos();
+                carrega = false;
 
             }
-            if (CriaInimigoFly <= 0 && inimigo == true)
-            {
-                addInimigo(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
-                CriaInimigoFly = 1000;
+            if(ativa){
+                waveAtiva = (List<Inimigo>)fases[play];
+                play+=1;
+                tempoWave = 2000;
+                ativa = false;
             }
+            if(waveAtiva != null){
+                for(int i= 0;i<waveAtiva.Count;i++){
+                      addInimigo(waveAtiva[i]);
+                 }
+                ativa = true;
+            }
+
+
+            
+            
+
+            //if (CriaInimigoMisseis <= 0 && inimigo == true)
+            //{
+              //  addInimigo(new LancadorMisseis(mygame, imgInimigoMisseis, 6, 100, 80, this, 10));
+            //    CriaInimigoMisseis = 3000;
+
+            //}
+            //if (CriaInimigoFly <= 0 && inimigo == true)
+            //{
+            //    addInimigo(new Fly(mygame, imgInimigoFly, 3, 100.0f, imgInimigoFly.Width / 3, positionfly, player, 10));
+            //    CriaInimigoFly = 1000;
+            //}
             //if (CriaInimigoDual <= 0 && inimigo == true)
             //{
             //    addInimigo(new DualGuns(mygame, imageDualGuns, 10, 100, 0, 10));
@@ -150,18 +206,17 @@ namespace XNAGameSpaceShotter.src.view
             //}
             //if (CriaInimigoMetralhadora <= 0 && inimigo == true)
             //{
-            //    addInimigo(new Metralhadora(mygame, imageMetralhadora, 10, 100, 0,this,10));
+            //    addInimigo(new Metralhadora(mygame, imageMetralhadora, 10, 100, 0, this, 10));
             //    CriaInimigoMetralhadora = 2000;
             //}
-            if (criaChefe < 0 && inimigo == true)
-            {
-                addInimigo(new Chefe(mygame, imgChefe, 50, 200, imgChefe.Width / 4, this,100));
-                criaChefe = 50000;
-                inimigo = false;
-            }
+            //if (criaChefe < 0 && inimigo == true)
+            //{
+            //    addInimigo(new Chefe(mygame, imgChefe, 50, 200, imgChefe.Width / 4, this, 100));
+            //    criaChefe = 50000;
+            //    inimigo = false;
+            //}
 
-            Console.WriteLine("Score:"+player.score);
-            scorePanel = "Score:   " + player.score;
+            scorePanel = "Score:   " + player.score;//score player
 
             //fim inimigos-------------------------------------------------------------------------------------
             if (isPressed(Microsoft.Xna.Framework.Input.Keys.Up, Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickUp))

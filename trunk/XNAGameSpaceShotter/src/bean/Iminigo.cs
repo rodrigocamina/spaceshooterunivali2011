@@ -27,6 +27,7 @@ namespace XNAGameSpaceShotter.src.bean
         public int largura;
         public int altura;
         public int score;
+        public Boolean ativa;
 
 
         public Inimigo(GameCore game, Texture2D imgInimigo, int hp, float velocidadeInimigo, int largura,int score)
